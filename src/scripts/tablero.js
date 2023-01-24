@@ -52,6 +52,31 @@ function openTablero(){
     const div = document.querySelector('#tablero01')
     div.style.display = 'block';
     ntries = 0;
+    // setTimeout(()=> {
+    //     console.log('next try....')
+    //     // const div = document.querySelector('#tablero01')
+    //     // div.addEventListener('click', (e)=> {
+    //     //     e.preventDefault();
+    //     //     return false;
+    //     // })
+    //     // const div = document.querySelectorAll('iframe').forEach(ifr => {
+    //     //     console.log('within iframe')
+    //     //     if(ifr.contentWindow.document.body.querySelector('a.fullScreenIcon')){
+    //     //         console.log('bingo');
+
+    //     //     }else {
+    //     //         console.log('siga participando')
+    //     //     }
+    //     // });
+
+    //     // if(div) {
+    //     //     console.log('bingo');
+    //     //     console.log(div.getAttribute('href'))
+    //     // }else {
+    //     // }
+
+
+    // }, 3000)
 }
 
 function closeTablero(){
