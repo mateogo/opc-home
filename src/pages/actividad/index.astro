@@ -1,14 +1,9 @@
 ---
 // Component Imports
-import MainHead from '../components/MainHead.astro';
-import Nav from '../components/Nav.astro';
-import Footer from '../components/Footer.astro';
-import PortfolioPreview from '../components/PortfolioPreview.astro';
-import type { Project } from '../types';
+import MainHead from '../../components/MainHead.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
 
-// Data Fetching: List all Markdown posts in the repo.
-const projects = await Astro.glob<Project>('./project/**/*.md');
-const featuredProject = projects[0]!;
 
 // Full Astro Component Syntax:
 // https://docs.astro.build/core-concepts/astro-components/
@@ -198,45 +193,56 @@ const featuredProject = projects[0]!;
 				text-align: center;
 				margin-top: 2em;
 			}
+
+			.closebtn {
+				font-weight: 700;
+				font-size: var(--f-u4);
+			}
+
+			#tablero01 {
+				margin-top: 25px;
+				display: none;
+			}
+
+			.form-wrapper {
+				display: flex;
+				flex-direction: row;
+				justify-content: center;
+			
+			}
+
+			.form-control {
+				display: flex;
+				max-width: 300px;
+				flex-direction: column;
+				justify-content: center;
+			}
+
+			input[type=text]{
+				padding: 10px;
+			}
+	
 		</style>
 	</head>
 	<body>
+
 		<Nav />
-		<header class="hero">
-			<img
-				width="1600"
-				height="1131"
-				class="img"
-				src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=1200&q=75"
-				srcset="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=1200&q=75 800w,https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=1200&q=75 1200w,https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=1600&q=75 1600w,https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=2400&q=75 2400w"
-				sizes="(max-width: 800px) 800px, (max-width: 1200px) 1200px, (max-width: 1600px) 1600px, (max-width: 2400px) 2400px, 1200px"
-			/>
-			<div class="gradient"></div>
-			<div class="gradient2"></div>
-			<div class="overlay">
-				<h1 class="title">
-					<small class="subtitle">Provincia de Buenos Aires</small>Organismo Provincial de Contrataciones
-				</h1>
-				<div class="roles">
-					<a href="/soporte"><span class="role">👩‍💻 Mesa de Ayuda <span class="invert">👩‍💻 Ingresar</span></span></a>
-					<a href="/actividad"><span class="role">👩‍💻 Tablero actividad <span class="invert">👩‍💻 Ver</span></span></a>
-					<!-- span class="role">🎤 Speaker <span class="invert">🎤 Speaker</span></span -->
-					<!-- span class="role">✏️ Writer <span class="invert">✏️ Writer</span></span -->
-				</div>
-				<p class="desc">Sitio en construcción. Disculpes las molestias.</p>
-			</div>
-		</header>
 		<main class="wrapper">
-			<div >
-				<div class="section">
-					<h3 class="sectionTitle">Novedades</h3>
-					<PortfolioPreview project={featuredProject} />
-					<div class="buttonContainer">
-						<a href="/projects/" class="button">Ver todos</a>
-					</div>
+			<div id="form01" class="section">
+				<h3 class="sectionTitle">
+					<small class="subtitle">Organismo Provincial de Contrataciones</small>Actividad OPC
+				</h3>
+
+			<div id="actividad01" class="section">
+				<div class="tableroif">
+					<iframe title="Reporte estado" width="1280" height="720" 
+					src="https://app.powerbi.com/view?r=eyJrIjoiMDI5YzRjNzUtZmNmNC00NzFhLThmODktN2JhNWFkODZjMmM2IiwidCI6ImJhZjM3ZDZiLTYxNDgtNGJlMC05YjY1LWFjMmRjNGZlNzQ0YSIsImMiOjR9" ></iframe>
 				</div>
 			</div>
 		</main>
 		<Footer />
+		<script>
+			import "../../scripts/tablero"
+		</script>
 	</body>
 </html>
